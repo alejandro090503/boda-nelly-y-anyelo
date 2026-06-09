@@ -797,9 +797,13 @@ function initEnvelope(){
     function play(){var p=envVideo.play();if(p&&p.catch)p.catch(function(){});if(envVideo.readyState>=2){crossfade();}else{envVideo.addEventListener('playing',crossfade,{once:true});setTimeout(crossfade,700);}}
     if(envVideo.readyState>=2)play();
     else{envVideo.load();envVideo.addEventListener('canplay',play,{once:true});setTimeout(play,1500);}
-    function finish(){if(finished)return;finished=true;mainWrap.style.visibility='visible';gsap.to(envScreen,{opacity:0,duration:.6,ease:'power2.inOut',onComplete:function(){envScreen.style.display='none';initMain();}});}
+    function finish(){if(finished)return;finished=true;mainWrap.style.visibility='visible';gsap.to(envScreen,{opacity:0,duration:1,ease:'power2.inOut',onComplete:function(){envScreen.style.display='none';initMain();}});}
+    /* Fade-out del sobre sincronizado con el fade del video (segundo 5→6) */
+    envVideo.addEventListener('timeupdate',function(){
+      if(!finished && envVideo.currentTime>=5){finish();}
+    });
     envVideo.addEventListener('ended',finish,{once:true});
-    setTimeout(finish,8500);
+    setTimeout(finish,6500);
   }
   envScreen.addEventListener('click',onTap,{passive:false});
   envScreen.addEventListener('touchstart',onTap,{passive:false});
