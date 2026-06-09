@@ -44,12 +44,16 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{overflow-x:hidden;max-width:100vw}
 html{scroll-behavior:auto}
-body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',serif;font-weight:500;font-size:18px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',serif;font-weight:500;font-size:19px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* Textura de recuadros (flores en relieve, ref. cliente) */
+.tex-card{background-image:linear-gradient(rgba(255,255,255,.84),rgba(255,255,255,.84)),url('textura-card.jpg')!important;background-size:cover!important;background-position:center!important}
 
 /* ── ENVELOPE ── */
 #envelope-screen{position:fixed;inset:0;z-index:9000;background:#f1f0ea;overflow:hidden;cursor:pointer;opacity:1}
 #envImage,#envVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 #envImage{opacity:1}#envVideo{opacity:0}
+.env-seal{position:absolute;top:46.5%;left:50%;transform:translate(-50%,-50%);width:min(31vw,158px);aspect-ratio:1;z-index:5;pointer-events:none;filter:drop-shadow(0 5px 14px rgba(0,0,0,.45));animation:sealBreath 4s ease-in-out infinite}
+@keyframes sealBreath{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.035)}}
 .env-tap{position:absolute;bottom:72px;left:50%;transform:translateX(-50%);z-index:10;font-family:'Italiana',serif;font-size:14px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);opacity:0;padding:16px 40px;white-space:nowrap;border:1px solid rgba(158,125,80,.45);border-radius:50px;background:rgba(245,244,240,.3);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .env-tap::before{content:'';position:absolute;inset:0;border-radius:50px;animation:envpulse 2s ease-out infinite}
 @keyframes envpulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.28);opacity:0}}
@@ -74,13 +78,15 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 
 /* ── TYPOGRAPHY ── */
 .eyebrow{font-family:'Cormorant Garamond',serif;font-style:normal;font-weight:600;font-size:15px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:14px;line-height:1.7;display:block}
-.heading{font-family:'Pinyon Script',cursive;font-size:56px;text-align:center;line-height:1.16;padding:.04em 0;margin-bottom:6px;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#9e7d50}
-.heading-sm{font-family:'Pinyon Script',cursive;font-size:42px;text-align:center;line-height:1.16;padding:.04em 0;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#9e7d50}
+.heading{font-family:'Pinyon Script',cursive;font-size:60px;text-align:center;line-height:1.16;padding:.04em 0;margin-bottom:6px;background:var(--gold-grad);background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#9e7d50;animation:goldFlow 7s ease-in-out infinite}
+.heading-sm{font-family:'Pinyon Script',cursive;font-size:46px;text-align:center;line-height:1.16;padding:.04em 0;background:var(--gold-grad);background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#9e7d50;animation:goldFlow 7s ease-in-out infinite}
+@keyframes goldFlow{0%,100%{background-position:0% center}50%{background-position:100% center}}
 .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--accent);text-align:center;opacity:.9;line-height:1.65}
 .italiana{font-family:'Italiana',serif;font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--dark)}
 .stagger-child{visibility:hidden}
-.intro-names{font-size:clamp(28px,7.8vw,40px)!important;line-height:1.12;margin:0}
+.intro-names{font-size:clamp(36px,10vw,52px)!important;line-height:1.1;margin:0}
 .intro-amp{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:30px;color:#a07840;line-height:1;margin:8px 0;display:block}
+.intro-date{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(19px,5vw,23px);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);line-height:1.55;display:inline-block;padding:11px 28px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:linear-gradient(rgba(158,125,80,.05),rgba(158,125,80,.05))}
 
 /* ── SCROLL HINT ── */
 .scroll-hint{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:1;transition:opacity .7s;white-space:nowrap}
@@ -113,7 +119,7 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 .hero-date{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:21px;letter-spacing:4px;color:#D4C5B2;margin-top:22px;display:block;text-shadow:0 1px 10px rgba(0,0,0,.7)}
 
 /* ── CARD ── */
-.card{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:36px 28px;position:relative;margin:0 4px}
+.card{background-image:linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.85)),url('textura-card.jpg');background-size:cover;background-position:center;border:1px solid var(--border);border-radius:4px;padding:36px 28px;position:relative;margin:0 4px}
 .card::before{content:'';position:absolute;inset:10px;border:1px solid transparent;border-image:var(--gold-grad) 1;pointer-events:none}
 
 /* ── COUNTDOWN ── */
@@ -129,15 +135,20 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 .cd-para{font-family:'Italiana',serif;font-size:10px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);opacity:.42;display:block;text-align:center;margin-top:16px}
 
 /* ── FAMILIARES ── */
-.fam-card{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:24px 18px;text-align:center;position:relative;max-width:340px;margin:0 auto}
+.fam-card{background-image:linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.85)),url('textura-card.jpg');background-size:cover;background-position:center;border:1px solid var(--border);border-radius:4px;padding:24px 18px;text-align:center;position:relative;max-width:340px;margin:0 auto}
 .fam-card::before{content:'';position:absolute;inset:8px;border:1px solid transparent;border-image:var(--gold-grad) 1;pointer-events:none}
 .fam-role-lbl{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:15px;letter-spacing:.05em;color:var(--gold);display:block;margin-bottom:12px}
 .fam-name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:20px;letter-spacing:.02em;color:var(--text);line-height:1.4;display:block}
 .fam-and{display:flex;align-items:center;gap:8px;margin:6px 0}
 .fam-and-line{flex:1;height:1px;background:var(--border)}
 .fam-and-txt{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--accent)}
-.fam-padrinos{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:24px 22px;text-align:center;position:relative;max-width:340px;margin:14px auto 0}
-.fam-padrinos::before{content:'';position:absolute;inset:8px;border:1px solid transparent;border-image:var(--gold-grad) 1;pointer-events:none}
+.fam-2col{display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:0;background-image:linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.85)),url('textura-card.jpg');background-size:cover;background-position:center;border:1px solid var(--border);border-radius:4px;padding:28px 14px;position:relative;max-width:380px;margin:0 auto}
+.fam-2col::before{content:'';position:absolute;inset:8px;border:1px solid transparent;border-image:var(--gold-grad) 1;pointer-events:none}
+.fam-col{text-align:center;padding:0 8px}
+.fam-divider{width:1px;align-self:stretch;background:linear-gradient(to bottom,transparent,var(--gold),transparent);opacity:.55;margin:0 2px}
+.fam-2col .fam-name{font-size:16px;line-height:1.35}
+.fam-2col .fam-role-lbl{margin-bottom:14px;font-size:13.5px;letter-spacing:.04em}
+.fam-2col .fam-and{margin:8px 0}
 .fam-rings{display:flex;justify-content:center;margin:14px 0 18px}
 .fam-rings svg{filter:drop-shadow(0 2px 8px rgba(158,125,80,.22));animation:ringsFloat 3.5s ease-in-out infinite}
 @keyframes ringsFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
@@ -155,6 +166,8 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 .loc-pin{display:flex;justify-content:center;margin:0 0 18px}
 .loc-pin svg{animation:pinPulse 2.8s ease-in-out infinite}
 @keyframes pinPulse{0%,100%{filter:drop-shadow(0 4px 8px rgba(158,125,80,.18))}50%{filter:drop-shadow(0 8px 18px rgba(158,125,80,.45))}}
+.loc-photo{width:100%;height:175px;object-fit:cover;border-radius:3px;margin-bottom:18px;display:block;border:1px solid var(--border-light);box-shadow:0 6px 20px rgba(20,16,10,.12)}
+.loc-addr{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--text);opacity:.8;line-height:1.5;text-align:center;margin:2px auto 0}
 .loc-venue-lbl{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
 .loc-venue{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;letter-spacing:.04em;color:var(--text);text-align:center;line-height:1.25;margin-bottom:14px}
 .loc-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(158,125,80,.18);justify-content:center}
@@ -194,6 +207,12 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 .dc-avoid-sw{display:flex;flex-direction:column;align-items:center;gap:8px}
 .dc-avoid-circle{width:38px;height:38px;border-radius:50%;box-shadow:0 2px 10px rgba(28,26,23,.15),inset 0 1px 2px rgba(255,255,255,.3);position:relative}
 .dc-avoid-circle::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:1px solid rgba(158,125,80,.3)}
+.dc-avoid-circle.x::before{content:'';position:absolute;inset:0;border-radius:50%;background:linear-gradient(45deg,transparent 43%,rgba(180,39,26,.92) 43%,rgba(180,39,26,.92) 57%,transparent 57%);z-index:2}
+.dc-avoid-head{display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:8px}
+.dc-avoid-head .dc-avoid-lbl{margin-bottom:0}
+.dc-avoid-lbl strong{color:#b4271a;font-weight:700}
+.dc-avoid-clarify{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14.5px;color:var(--text);opacity:.82;text-align:center;line-height:1.6;max-width:300px;margin:0 auto 18px}
+.dc-avoid-clarify strong{color:#b4271a;font-style:normal;font-weight:700}
 .dc-avoid-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;color:var(--text);opacity:.72;text-align:center;max-width:60px;line-height:1.4}
 .dc-avoid-msg{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--text);text-align:center;line-height:1.7;opacity:.78;max-width:300px;margin:0 auto}
 .dc-note{margin-top:18px;padding:14px 18px;border:1px solid var(--border);border-radius:4px;background:rgba(158,125,80,.04);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--dark);text-align:center;line-height:1.65;max-width:320px;margin-left:auto;margin-right:auto}
@@ -210,6 +229,15 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 .wheel-card img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;pointer-events:none}
 .gal-hint{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;letter-spacing:3px;color:var(--gold);margin-top:24px;opacity:.7}
 .gal-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(15px,4vw,17px);color:var(--text);opacity:.55;text-align:center;margin:12px auto 0;max-width:260px;line-height:1.7}
+
+/* ── BANDA FOTOGRÁFICA ── */
+.photo-band{position:relative;width:100%;max-width:440px;margin:0 auto;height:clamp(300px,72vw,380px);overflow:hidden}
+.photo-band img{width:100%;height:100%;object-fit:cover;display:block;animation:bandPan 22s ease-in-out infinite alternate}
+@keyframes bandPan{0%{transform:scale(1.04)}100%{transform:scale(1.12)}}
+.photo-band-veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,16,10,.58) 0%,rgba(20,16,10,.12) 45%,rgba(20,16,10,.28) 100%)}
+.photo-band-frame{position:absolute;inset:14px;border:1px solid rgba(212,197,178,.45);pointer-events:none}
+.photo-band-quote{position:absolute;bottom:30px;left:24px;right:24px;text-align:center;font-family:'Pinyon Script',cursive;color:#fdfbf6;font-size:clamp(26px,8vw,34px);line-height:1.2;text-shadow:0 2px 14px rgba(0,0,0,.55);z-index:2}
+.photo-band-eyebrow{position:absolute;top:30px;left:0;right:0;text-align:center;font-family:'Italiana',serif;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:rgba(212,197,178,.92);text-shadow:0 1px 8px rgba(0,0,0,.6);z-index:2}
 
 /* ── REGALOS ── */
 #regalos{background:var(--soft);overflow:hidden}
@@ -254,7 +282,7 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 .qr-note{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--text);opacity:.6}
 
 /* ── RSVP ── */
-.rsvp-card{max-width:480px;margin:24px auto 0;background:rgba(255,255,255,.92);border:1px solid rgba(158,125,80,.38);padding:clamp(34px,5vw,52px) clamp(22px,4vw,40px);position:relative;box-shadow:0 18px 48px rgba(20,16,10,.07),0 4px 20px rgba(158,125,80,.1)}
+.rsvp-card{max-width:480px;margin:24px auto 0;background-image:linear-gradient(rgba(255,255,255,.88),rgba(255,255,255,.88)),url('textura-card.jpg');background-size:cover;background-position:center;border:1px solid rgba(158,125,80,.38);padding:clamp(34px,5vw,52px) clamp(22px,4vw,40px);position:relative;box-shadow:0 18px 48px rgba(20,16,10,.07),0 4px 20px rgba(158,125,80,.1)}
 .rsvp-card::before{content:'';position:absolute;inset:9px;border:1px solid rgba(158,125,80,.2);pointer-events:none}
 .rsvp-corner{position:absolute;width:44px;height:44px;pointer-events:none}
 .rsvp-corner--tl{top:0;left:0}.rsvp-corner--tr{top:0;right:0;transform:scaleX(-1)}.rsvp-corner--bl{bottom:0;left:0;transform:scaleY(-1)}.rsvp-corner--br{bottom:0;right:0;transform:scale(-1,-1)}
@@ -286,15 +314,15 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 #footer::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(158,125,80,.05) 0%,transparent 70%);pointer-events:none}
 #footer::after{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(to right,transparent,rgba(158,125,80,.28),rgba(212,197,178,.45),rgba(158,125,80,.28),transparent)}
 .footer-initials{display:flex;align-items:baseline;gap:8px;margin-bottom:12px;overflow:visible;justify-content:center}
-.fi-letter{font-family:'Pinyon Script',cursive;font-size:58px;line-height:1.5;padding:12px 24px;margin:-12px -16px;background:linear-gradient(135deg,#D4C5B2 0%,#9e7d50 50%,#D4C5B2 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.fi-letter{font-family:'Pinyon Script',cursive;font-size:74px;line-height:1.5;padding:12px 24px;margin:-12px -16px;background:linear-gradient(135deg,#D4C5B2 0%,#cdae72 28%,#9e7d50 50%,#cdae72 72%,#D4C5B2 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:goldFlow 6s ease-in-out infinite}
 .fi-amp{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:#D4C5B2;opacity:.5;align-self:center;margin:0 4px}
 .footer-monogram-wrap{display:flex;flex-direction:column;align-items:center;margin-bottom:28px;position:relative;overflow:visible}
 .footer-orn-line{display:flex;align-items:center;gap:10px;opacity:.35}
 .footer-orn-line .fo-line{width:48px;height:1px;background:linear-gradient(to right,transparent,#D4C5B2)}.footer-orn-line .fo-line:last-child{background:linear-gradient(to left,transparent,#D4C5B2)}
 .footer-orn-line .fo-diamond{width:5px;height:5px;background:#9e7d50;transform:rotate(45deg)}
-.footer-date{font-family:'Italiana',serif;font-size:13px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);opacity:.55;margin-top:16px}
+.footer-date{font-family:'Italiana',serif;font-size:16px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-light);opacity:.85;margin-top:18px}
 .footer-hr{width:50px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:28px auto 18px;opacity:.3}
-.footer-credit{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;letter-spacing:.5px;color:rgba(158,125,80,.3);text-decoration:none;display:block;transition:color .3s}
+.footer-credit{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;letter-spacing:.5px;color:rgba(212,197,178,.6);text-decoration:none;display:block;transition:color .3s}
 .footer-credit:hover{color:var(--gold)}
 
 /* ── MUSIC (vinyl) ── */
@@ -331,6 +359,19 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 <div id="envelope-screen">
   <img id="envImage" src="sobre.png" alt="Sobre de invitación Nelly y Anyelo">
   <video id="envVideo" src="sobre-apertura.mp4" muted playsinline preload="auto" poster="sobre.png"></video>
+  <div id="envSeal" class="env-seal" aria-hidden="true">
+    <svg viewBox="0 0 100 100" width="100%" height="100%">
+      <defs>
+        <radialGradient id="waxG" cx="38%" cy="32%" r="75%">
+          <stop offset="0" stop-color="#ecce8c"/><stop offset=".42" stop-color="#c39a55"/><stop offset=".8" stop-color="#9a7838"/><stop offset="1" stop-color="#7a5d2a"/>
+        </radialGradient>
+      </defs>
+      <path d="M50 3 L60 7 L71 5 L77 14 L88 17 L88 28 L96 36 L91 46 L97 55 L89 62 L92 73 L81 76 L77 87 L66 85 L57 93 L50 86 L43 93 L34 85 L23 87 L19 76 L8 73 L11 62 L3 55 L9 46 L4 36 L12 28 L12 17 L23 14 L29 5 L40 7 Z" fill="url(#waxG)" stroke="#6b5021" stroke-width="1"/>
+      <circle cx="50" cy="49" r="33" fill="none" stroke="#5e4720" stroke-width="1.1" opacity=".55"/>
+      <circle cx="50" cy="49" r="30" fill="none" stroke="#f2dcab" stroke-width=".6" opacity=".5"/>
+      <text x="50" y="60" text-anchor="middle" font-family="'Pinyon Script',cursive" font-size="31" fill="#574119">N&amp;A</text>
+    </svg>
+  </div>
   <div class="env-tap" id="envTap">Toca para abrir</div>
 </div>
 
@@ -372,16 +413,26 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
     <span class="intro-corner ic-bl"><svg viewBox="0 0 90 90" fill="none" aria-hidden="true"><path d="M7 7 C26 19 41 29 57 30" stroke="#bba180" stroke-width="1" opacity=".5"/><path d="M7 7 C19 26 29 41 30 57" stroke="#bba180" stroke-width="1" opacity=".5"/><path d="M30 21 q9 -7 18 -3 q-7 8 -18 3Z" fill="#bba180" opacity=".22"/><path d="M45 26 q9 -6 17 -1 q-8 8 -17 1Z" fill="#bba180" opacity=".18"/><path d="M21 30 q-7 9 -3 18 q8 -7 3 -18Z" fill="#bba180" opacity=".22"/><path d="M26 45 q-6 9 -1 17 q8 -8 1 -17Z" fill="#bba180" opacity=".18"/><g transform="translate(12,12)" stroke="#bba180" stroke-width="1" opacity=".6" fill="none"><ellipse cx="0" cy="-7.5" rx="3" ry="6.5"/><ellipse cx="0" cy="-7.5" rx="3" ry="6.5" transform="rotate(72)"/><ellipse cx="0" cy="-7.5" rx="3" ry="6.5" transform="rotate(144)"/><ellipse cx="0" cy="-7.5" rx="3" ry="6.5" transform="rotate(216)"/><ellipse cx="0" cy="-7.5" rx="3" ry="6.5" transform="rotate(288)"/><circle cx="0" cy="0" r="2" fill="#bba180"/></g></svg></span>
     <span class="intro-corner ic-br"><svg viewBox="0 0 90 90" fill="none" aria-hidden="true"><path d="M7 7 C26 19 41 29 57 30" stroke="#bba180" stroke-width="1" opacity=".5"/><path d="M7 7 C19 26 29 41 30 57" stroke="#bba180" stroke-width="1" opacity=".5"/><path d="M30 21 q9 -7 18 -3 q-7 8 -18 3Z" fill="#bba180" opacity=".22"/><path d="M45 26 q9 -6 17 -1 q-8 8 -17 1Z" fill="#bba180" opacity=".18"/><path d="M21 30 q-7 9 -3 18 q8 -7 3 -18Z" fill="#bba180" opacity=".22"/><path d="M26 45 q-6 9 -1 17 q8 -8 1 -17Z" fill="#bba180" opacity=".18"/><g transform="translate(12,12)" stroke="#bba180" stroke-width="1" opacity=".6" fill="none"><ellipse cx="0" cy="-7.5" rx="3" ry="6.5"/><ellipse cx="0" cy="-7.5" rx="3" ry="6.5" transform="rotate(72)"/><ellipse cx="0" cy="-7.5" rx="3" ry="6.5" transform="rotate(144)"/><ellipse cx="0" cy="-7.5" rx="3" ry="6.5" transform="rotate(216)"/><ellipse cx="0" cy="-7.5" rx="3" ry="6.5" transform="rotate(288)"/><circle cx="0" cy="0" r="2" fill="#bba180"/></g></svg></span>
     <span class="eyebrow stagger-child">Con la bendición de Dios</span>
-    <h1 class="heading intro-names stagger-child" style="margin-top:28px">Nelly De Villa Elizondo</h1>
-    <span class="intro-amp stagger-child">&amp;</span>
-    <p class="heading intro-names stagger-child">Anyelo Flores Velázquez</p>
-    <div class="orn bot stagger-child" style="margin-top:28px"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
-    <span class="eyebrow stagger-child" style="margin-top:22px;font-size:12px;letter-spacing:.22em">Tenemos el honor de invitarles<br>a celebrar nuestra unión en matrimonio</span>
-    <p class="stagger-child" style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:16px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);line-height:1.7;margin-top:20px">Sábado 31 de Octubre de 2026</p>
-    <div class="invite-verse stagger-child" style="margin-top:28px">
-      <p class="invite-verse-rut" style="margin-bottom:0;border-bottom:none;padding-bottom:0">El amor es paciente, es bondadoso. El amor no tiene envidia, no es jactancioso, no se envanece.</p>
+    <h1 class="heading intro-names stagger-child" style="margin-top:30px">Nelly F. Olvera Elizondo</h1>
+    <span class="intro-amp stagger-child" style="font-size:34px">&amp;</span>
+    <p class="heading intro-names stagger-child">Anyelo E. González Velázquez</p>
+    <div class="orn bot stagger-child" style="margin-top:30px"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
+    <span class="eyebrow stagger-child" style="margin-top:26px;font-size:15px;letter-spacing:.16em;line-height:1.85;color:var(--text);opacity:.92;font-weight:600">Tenemos el honor de invitarles<br>a celebrar nuestra unión en matrimonio</span>
+    <p class="stagger-child intro-date" style="margin-top:24px">Sábado 31 de Octubre de 2026</p>
+    <div class="invite-verse stagger-child" style="margin-top:30px">
+      <p class="invite-verse-rut" style="margin-bottom:0;border-bottom:none;padding-bottom:0">Todo tiene su momento, y cada cosa su tiempo bajo el cielo.</p>
+      <p class="invite-verse-end" style="margin-top:12px;font-style:italic;font-size:14px;letter-spacing:.06em;color:var(--gold)">— Eclesiastés 3, 1</p>
     </div>
   </section>
+
+  <!-- BANDA FOTOGRÁFICA 1 -->
+  <div class="photo-band rv">
+    <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/581b4bca-7a10-44ad-929d-4f5b42fa6db4/1780197645674-0.jpeg" alt="Nelly y Anyelo" loading="lazy" style="object-position:center 20%">
+    <div class="photo-band-veil"></div>
+    <div class="photo-band-frame"></div>
+    <span class="photo-band-eyebrow">Nuestra Historia</span>
+    <span class="photo-band-quote">Y al fin, para siempre</span>
+  </div>
 
   <!-- CUENTA REGRESIVA -->
   <section class="sec-sm rv" style="text-align:center;background:var(--soft)">
@@ -418,53 +469,19 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
     </div>
     <div class="orn" style="margin-top:8px"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
 
-    <div class="fam-card rv" style="margin-top:28px">
-      <span class="fam-role-lbl">Padres de la Novia</span>
-      <span class="fam-name">Edith Elizondo</span>
-      <div class="fam-and"><div class="fam-and-line"></div><span class="fam-and-txt">y</span><div class="fam-and-line"></div></div>
-      <span class="fam-name">Juan Manuel De Villa <svg viewBox="0 0 10 14" width="9" height="13" fill="none" aria-label="q.e.p.d." style="display:inline-block;vertical-align:middle;margin-left:3px;opacity:.65;flex-shrink:0"><line x1="5" y1="1" x2="5" y2="13" stroke="#9e7d50" stroke-width="1"/><line x1="1.5" y1="4.5" x2="8.5" y2="4.5" stroke="#9e7d50" stroke-width="1"/></svg></span>
-    </div>
-
-    <div class="fam-card rv" style="margin-top:14px">
-      <span class="fam-role-lbl">Padres del Novio</span>
-      <span class="fam-name">Leticia Velázquez</span>
-      <div class="fam-and"><div class="fam-and-line"></div><span class="fam-and-txt">y</span><div class="fam-and-line"></div></div>
-      <span class="fam-name">Javier Flores</span>
-    </div>
-
-    <!-- PADRINOS: pendiente -->
-    <div class="fam-padrinos rv">
-      <span class="fam-role-lbl" style="font-size:17px">Nuestros Padrinos</span>
-      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--text);opacity:.6;margin-top:10px;line-height:1.65">Por confirmar</p>
-    </div>
-
-    <!-- CORTEJO -->
-    <div class="rv" style="margin-top:28px">
-      <span class="eyebrow" style="margin-bottom:18px">Damas de Honor &amp; Caballeros</span>
-      <div class="cortejo-grid">
-        <div class="cortejo-row">
-          <span class="cortejo-name dame">Karla<br>Rodríguez</span>
-          <span class="cortejo-sep">&amp;</span>
-          <span class="cortejo-name champ">Enrique<br>Villegas</span>
-        </div>
-        <div class="cortejo-row">
-          <span class="cortejo-name dame">Mara<br>Robles</span>
-          <span class="cortejo-sep">&amp;</span>
-          <span class="cortejo-name champ">Mauro<br>Treviño</span>
-        </div>
-        <div class="cortejo-row">
-          <span class="cortejo-name dame">Nataly<br>Marroquín</span>
-          <span class="cortejo-sep">&amp;</span>
-          <span class="cortejo-name champ">Amando<br>Villarreal</span>
-        </div>
-        <div class="cortejo-row">
-          <span class="cortejo-name dame">Cynthia<br>González</span>
-          <span class="cortejo-sep">&amp;</span>
-          <span class="cortejo-name champ">J. Roberto<br>Montelongo</span>
-        </div>
-        <div class="cortejo-row" style="grid-template-columns:1fr">
-          <span class="cortejo-single">Anna Elizondo</span>
-        </div>
+    <div class="fam-2col rv" style="margin-top:28px">
+      <div class="fam-col">
+        <span class="fam-role-lbl">Padres de la Novia</span>
+        <span class="fam-name">Edith Julia<br>Elizondo Villarreal</span>
+        <div class="fam-and"><div class="fam-and-line"></div><span class="fam-and-txt">y</span><div class="fam-and-line"></div></div>
+        <span class="fam-name">Juan Manuel<br>De Villa García <svg viewBox="0 0 10 14" width="9" height="13" fill="none" aria-label="q.e.p.d." style="display:inline-block;vertical-align:middle;margin-left:1px;opacity:.65"><line x1="5" y1="1" x2="5" y2="13" stroke="#9e7d50" stroke-width="1"/><line x1="1.5" y1="4.5" x2="8.5" y2="4.5" stroke="#9e7d50" stroke-width="1"/></svg></span>
+      </div>
+      <div class="fam-divider"></div>
+      <div class="fam-col">
+        <span class="fam-role-lbl">Padres del Novio</span>
+        <span class="fam-name">Norma Leticia<br>Velázquez Bocanegra</span>
+        <div class="fam-and"><div class="fam-and-line"></div><span class="fam-and-txt">y</span><div class="fam-and-line"></div></div>
+        <span class="fam-name">Francisco Javier<br>Flores Escobedo</span>
       </div>
     </div>
   </section>
@@ -482,21 +499,25 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
     <p class="sub" style="margin-top:6px;color:var(--gold);font-weight:600">Monterrey, Nuevo León</p>
 
     <div class="card rv" style="max-width:380px;margin:24px auto 0">
+      <img class="loc-photo" src="iglesia.jpg" alt="Parroquia del Sagrado Corazón de Jesús" loading="lazy" style="object-position:center 35%">
       <span class="loc-venue-lbl">Ceremonia Religiosa</span>
       <div class="loc-row" style="border-bottom:none;padding:6px 0">
         <svg class="loc-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <div class="loc-txt"><strong>7:00 p.m.</strong></div>
       </div>
-      <h3 class="loc-venue" style="margin:6px 0 14px">Parroquia Sagrado<br>Corazón de Jesús</h3>
-      <a href="https://maps.app.goo.gl/S3BAoWLaT9ABvxe97" target="_blank" rel="noopener" class="btn-map" style="margin-top:0">
+      <h3 class="loc-venue" style="margin:6px 0 8px">Parroquia del Sagrado<br>Corazón de Jesús</h3>
+      <p class="loc-addr">5 de Mayo, Centro<br>Monterrey, Nuevo León</p>
+      <a href="https://maps.app.goo.gl/S3BAoWLaT9ABvxe97" target="_blank" rel="noopener" class="btn-map" style="margin-top:14px">
         <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         Cómo llegar
       </a>
     </div>
 
     <div class="card rv" style="max-width:380px;margin:14px auto 0">
+      <img class="loc-photo" src="salon.jpg" alt="RIVA Salón &amp; Jardín" loading="lazy" style="object-position:center">
       <span class="loc-venue-lbl">Ceremonia Civil &amp; Recepción</span>
-      <h3 class="loc-venue" style="margin:8px 0 16px">RIVA Salón &amp; Jardín</h3>
+      <h3 class="loc-venue" style="margin:8px 0 4px">RIVA Salón &amp; Jardín</h3>
+      <p class="loc-addr" style="margin-bottom:14px">Carretera Nacional, Los Cristales<br>Santiago, Nuevo León</p>
       <!-- Civil -->
       <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--border-light)">
         <svg class="loc-icon" viewBox="0 0 24 24" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -542,39 +563,69 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
       <div class="itin-item rv"><div class="itin-dot alt"></div><div class="itin-time">9:00 p.m.</div><div class="itin-ev">Ceremonia Civil<br>RIVA Salón &amp; Jardín</div></div>
       <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">10:00 p.m.</div><div class="itin-ev">Recepción<br>RIVA Salón &amp; Jardín</div></div>
       <div class="itin-item rv"><div class="itin-dot alt"></div><div class="itin-time">10:30 p.m.</div><div class="itin-ev">Cena</div></div>
+      <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">11:30 p.m.</div><div class="itin-ev">Fiesta</div></div>
+      <div class="itin-item rv"><div class="itin-dot alt"></div><div class="itin-time">3:00 a.m.</div><div class="itin-ev">Fin de la Fiesta</div></div>
     </div>
   </section>
 
   <!-- DRESS CODE -->
   <section class="sec rv" style="text-align:center;background:var(--soft)">
     <span class="eyebrow">Código de Vestimenta</span>
-    <h2 class="heading-sm">Formal</h2>
+    <h2 class="heading-sm">Etiqueta</h2>
     <div class="orn" style="margin-top:16px"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
 
     <div class="dc-figs rv">
       <div class="dc-fig">
-        <img src="caballero.png" width="100" height="160" alt="Caballero — traje formal" style="object-fit:contain">
+        <svg viewBox="0 0 110 150" width="96" height="131" fill="none" aria-label="Caballero de etiqueta">
+          <ellipse cx="55" cy="25" rx="14" ry="16.5" fill="#2a2520"/>
+          <path d="M41 18 Q55 7 69 18 Q66 12 55 11 Q44 12 41 18Z" fill="#3a342c"/>
+          <path d="M49 40 L49 53 L61 53 L61 40Z" fill="#e9e2d3"/>
+          <path d="M19 150 L23 80 Q29 61 49 53 L55 66 L61 53 Q81 61 87 80 L91 150Z" fill="#1b1916"/>
+          <path d="M49 53 L55 66 L61 53 L59 116 L51 116Z" fill="#f2eee3"/>
+          <path d="M49 53 L41 100 L52 72Z" fill="#9e7d50" opacity=".9"/>
+          <path d="M61 53 L69 100 L58 72Z" fill="#9e7d50" opacity=".9"/>
+          <path d="M48 60 L55 66 L48 72 Q45 66 48 60Z" fill="#1b1916"/>
+          <path d="M62 60 L55 66 L62 72 Q65 66 62 60Z" fill="#1b1916"/>
+          <rect x="53" y="63.5" width="4" height="5" rx="1" fill="#2a2520"/>
+          <circle cx="55" cy="94" r="1.7" fill="#9e7d50"/>
+          <circle cx="55" cy="106" r="1.7" fill="#9e7d50"/>
+        </svg>
         <span class="dc-fig-ttl">Caballeros</span>
-        <span class="dc-fig-sub">Traje formal</span>
+        <span class="dc-fig-sub">Esmoquin o traje</span>
       </div>
       <div class="dc-fig">
-        <img src="dama.png" width="100" height="160" alt="Dama — vestido largo" style="object-fit:contain">
+        <svg viewBox="0 0 110 150" width="96" height="131" fill="none" aria-label="Dama de gala">
+          <defs><linearGradient id="galaG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e7d4b0"/><stop offset=".5" stop-color="#cdb085"/><stop offset="1" stop-color="#a8895c"/></linearGradient></defs>
+          <ellipse cx="55" cy="24" rx="12.5" ry="15.5" fill="#2a2520"/>
+          <path d="M43 16 Q37 42 47 60 Q42 40 46 22Z" fill="#352f28"/>
+          <path d="M67 16 Q73 42 63 60 Q68 40 64 22Z" fill="#352f28"/>
+          <path d="M50 37 L50 50 L60 50 L60 37Z" fill="#e7d2b6"/>
+          <path d="M40 60 Q46 55 55 57 Q64 55 70 60 L66 66 Q55 74 44 66Z" fill="url(#galaG)"/>
+          <path d="M44 64 Q55 73 66 64 L70 60 Q80 96 78 150 L32 150 Q30 96 40 60Z" fill="url(#galaG)"/>
+          <path d="M55 74 L55 150" stroke="#8a6f48" stroke-width=".6" opacity=".4"/>
+          <path d="M48 92 Q47 122 44 150" stroke="#8a6f48" stroke-width=".5" opacity=".3"/>
+          <path d="M62 92 Q63 122 66 150" stroke="#8a6f48" stroke-width=".5" opacity=".3"/>
+          <path d="M40 60 L33 150" stroke="#fff" stroke-width=".5" opacity=".22"/>
+        </svg>
         <span class="dc-fig-ttl">Damas</span>
-        <span class="dc-fig-sub">Vestido largo</span>
+        <span class="dc-fig-sub">Vestido largo de gala</span>
       </div>
     </div>
 
     <div class="dc-avoid-wrap rv">
-      <span class="dc-avoid-lbl">Agradecemos evitar estos tonos</span>
+      <div class="dc-avoid-head">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke="#b4271a" stroke-width="1.7"/><line x1="5.4" y1="5.4" x2="18.6" y2="18.6" stroke="#b4271a" stroke-width="1.7"/></svg>
+        <span class="dc-avoid-lbl">Tonos a <strong>evitar</strong></span>
+      </div>
+      <p class="dc-avoid-clarify">Estos <u>no</u> son colores sugeridos. Con cariño, te pedimos <strong>no</strong> usarlos en tu vestuario.</p>
       <div class="dc-avoid-row">
-        <div class="dc-avoid-sw"><div class="dc-avoid-circle" style="background:#FFFFFF;border:1px solid #ddd"></div><span class="dc-avoid-name">Blanco</span></div>
-        <div class="dc-avoid-sw"><div class="dc-avoid-circle" style="background:#ebebeb"></div><span class="dc-avoid-name">Off-white</span></div>
-        <div class="dc-avoid-sw"><div class="dc-avoid-circle" style="background:#d19d01"></div><span class="dc-avoid-name">Amarillo oro</span></div>
-        <div class="dc-avoid-sw"><div class="dc-avoid-circle" style="background:#e22400"></div><span class="dc-avoid-name">Rojo</span></div>
-        <div class="dc-avoid-sw"><div class="dc-avoid-circle" style="background:#fff2d5"></div><span class="dc-avoid-name">Crema claro</span></div>
+        <div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#FFFFFF;border:1px solid #ddd"></div><span class="dc-avoid-name">Blanco</span></div>
+        <div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#ebebeb"></div><span class="dc-avoid-name">Off-white</span></div>
+        <div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#d19d01"></div><span class="dc-avoid-name">Amarillo oro</span></div>
+        <div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#e22400"></div><span class="dc-avoid-name">Rojo</span></div>
+        <div class="dc-avoid-sw"><div class="dc-avoid-circle x" style="background:#fff2d5"></div><span class="dc-avoid-name">Crema claro</span></div>
       </div>
       <p class="dc-avoid-msg">El blanco está reservado para la novia.</p>
-      <div class="dc-note">Por favor, sin sombreros ni gorras.</div>
     </div>
   </section>
 
@@ -693,6 +744,14 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
     </div>
   </section>
 
+  <!-- BANDA FOTOGRÁFICA 2 -->
+  <div class="photo-band rv">
+    <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/581b4bca-7a10-44ad-929d-4f5b42fa6db4/1780197639806-0.jpeg" alt="Nelly y Anyelo bailando" loading="lazy" style="object-position:center 30%">
+    <div class="photo-band-veil"></div>
+    <div class="photo-band-frame"></div>
+    <span class="photo-band-quote">Nos vemos en el altar</span>
+  </div>
+
   <!-- RSVP -->
   <section class="sec rv" id="rsvp" style="text-align:center;background:var(--soft)">
     <span class="eyebrow">Confirmación de Asistencia</span>
@@ -797,7 +856,8 @@ function initEnvelope(){
     gsap.to(envTap,{opacity:0,duration:.3});
     envVideo.currentTime=0;
     var finished=false;
-    function crossfade(){gsap.to(envImage,{opacity:0,duration:.45,ease:'power2.inOut'});gsap.to(envVideo,{opacity:1,duration:.45,ease:'power2.inOut'});}
+    var envSeal=document.getElementById('envSeal');
+    function crossfade(){gsap.to(envImage,{opacity:0,duration:.45,ease:'power2.inOut'});if(envSeal)gsap.to(envSeal,{opacity:0,duration:.4,ease:'power2.inOut'});gsap.to(envVideo,{opacity:1,duration:.45,ease:'power2.inOut'});}
     function play(){var p=envVideo.play();if(p&&p.catch)p.catch(function(){});if(envVideo.readyState>=2){crossfade();}else{envVideo.addEventListener('playing',crossfade,{once:true});setTimeout(crossfade,700);}}
     if(envVideo.readyState>=2)play();
     else{envVideo.load();envVideo.addEventListener('canplay',play,{once:true});setTimeout(play,1500);}
