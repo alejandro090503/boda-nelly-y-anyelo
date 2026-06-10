@@ -164,7 +164,7 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 .loc-pin{display:flex;justify-content:center;margin:0 0 18px}
 .loc-pin svg{animation:pinPulse 2.8s ease-in-out infinite}
 @keyframes pinPulse{0%,100%{filter:drop-shadow(0 4px 8px rgba(158,125,80,.18))}50%{filter:drop-shadow(0 8px 18px rgba(158,125,80,.45))}}
-.loc-photo{width:100%;height:175px;object-fit:cover;border-radius:3px;margin-bottom:18px;display:block;border:1px solid var(--border-light);box-shadow:0 6px 20px rgba(20,16,10,.12)}
+.loc-photo{width:100%;height:auto;max-height:280px;object-fit:cover;border-radius:3px;margin-bottom:18px;display:block;border:1px solid var(--border-light);box-shadow:0 6px 20px rgba(20,16,10,.12)}
 .loc-addr{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--text);opacity:.8;line-height:1.5;text-align:center;margin:2px auto 0}
 .loc-venue-lbl{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
 .loc-venue{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;letter-spacing:.04em;color:var(--text);text-align:center;line-height:1.25;margin-bottom:14px}
@@ -500,30 +500,21 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
     </div>
 
     <div class="card rv" style="max-width:380px;margin:14px auto 0">
-      <img class="loc-photo" src="salon.jpg" alt="RIVA Salón &amp; Jardín" loading="lazy" style="object-position:center">
+      <img class="loc-photo" src="salon.jpg" alt="RIVA Salón &amp; Jardín" loading="lazy">
       <span class="loc-venue-lbl">Ceremonia Civil &amp; Recepción</span>
-      <h3 class="loc-venue" style="margin:8px 0 4px">RIVA Salón &amp; Jardín</h3>
-      <p class="loc-addr" style="margin-bottom:14px">Carretera Nacional, Los Cristales<br>Santiago, Nuevo León</p>
-      <!-- Civil -->
-      <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--border-light)">
-        <svg class="loc-icon" viewBox="0 0 24 24" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <div style="flex:1">
-          <div style="font-family:'Italiana',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:2px">Ceremonia Civil</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:17px;color:var(--text)">9:00 p.m.</div>
-        </div>
+      <h3 class="loc-venue" style="margin:8px 0 8px">RIVA Salón &amp; Jardín</h3>
+      <p class="loc-addr">Carretera Nacional, Los Cristales<br>Santiago, Nuevo León</p>
+      <div class="loc-row" style="margin-top:14px;border-top:1px solid var(--border-light);padding-top:14px">
+        <svg class="loc-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="loc-txt"><span style="display:block;font-family:'Italiana',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:2px">Ceremonia Civil</span><strong>9:00 p.m.</strong></div>
       </div>
-      <!-- Flecha secuencia -->
-      <div style="display:flex;align-items:center;gap:8px;padding:2px 0 2px 34px">
-        <svg viewBox="0 0 12 16" width="10" height="14" fill="none"><line x1="5" y1="0" x2="5" y2="12" stroke="#bba180" stroke-width="1"/><polyline points="2,9 5,13 8,9" stroke="#bba180" stroke-width="1" fill="none"/></svg>
-        <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;color:var(--gold);opacity:.7;letter-spacing:.06em">a continuación</span>
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;padding:4px 0">
+        <svg viewBox="0 0 12 16" width="10" height="14" fill="none"><line x1="6" y1="0" x2="6" y2="12" stroke="var(--gold)" stroke-width="1" opacity=".6"/><polyline points="3,9 6,13 9,9" stroke="var(--gold)" stroke-width="1" fill="none" opacity=".6"/></svg>
+        <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--gold);opacity:.7;letter-spacing:.06em">a continuación</span>
       </div>
-      <!-- Recepción -->
-      <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border-light)">
-        <svg class="loc-icon" viewBox="0 0 24 24" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <div style="flex:1">
-          <div style="font-family:'Italiana',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:2px">Recepción</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:17px;color:var(--text)">10:00 p.m.</div>
-        </div>
+      <div class="loc-row" style="border-bottom:none;padding:8px 0">
+        <svg class="loc-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="loc-txt"><span style="display:block;font-family:'Italiana',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:2px">Recepción</span><strong>10:00 p.m.</strong></div>
       </div>
       <a href="https://maps.app.goo.gl/3rPFwYBU3mX7kQYp7" target="_blank" rel="noopener" class="btn-map" style="margin-top:14px">
         <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -888,9 +879,21 @@ function initMain(){
   var hint=document.getElementById('scrollHint'),hintHidden=false;
   window.addEventListener('scroll',function(){if(!hintHidden&&window.scrollY>60){hintHidden=true;hint.classList.add('hidden');}},{passive:true});
 
-  /* Reveal */
+  /* Reveal with inner stagger */
   gsap.utils.toArray('.rv').forEach(function(el){
-    gsap.fromTo(el,{autoAlpha:0,y:28},{autoAlpha:1,y:0,duration:.85,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}});
+    var children=Array.from(el.children).filter(function(c){
+      if(!c.classList)return false;
+      if(c.classList.contains('rv'))return false;
+      if(c.classList.contains('stagger-child'))return false;
+      var cls=(c.className&&typeof c.className==='string')?c.className:(c.className&&c.className.baseVal)||'';
+      return c.nodeType===1&&!cls.match(/corner|intro-corner|rsvp-corner|hero-corner|g-corner|cd-dot|cd-sep|orn-line|orn-diamond|fo-|fam-divider|qr-c|photo-band|vinyl|env/);
+    });
+    if(children.length>=2){
+      gsap.fromTo(el,{autoAlpha:0},{autoAlpha:1,duration:.4,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}});
+      children.forEach(function(c,i){gsap.fromTo(c,{opacity:0,y:16},{opacity:1,y:0,duration:.55,ease:'power2.out',delay:.08+i*.07,scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}});});
+    }else{
+      gsap.fromTo(el,{autoAlpha:0,y:28},{autoAlpha:1,y:0,duration:.85,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}});
+    }
   });
 
   /* Stagger */
@@ -898,6 +901,15 @@ function initMain(){
     var children=Array.from(sec.querySelectorAll('.stagger-child'));
     if(children.length<2)return;
     children.forEach(function(el,i){gsap.fromTo(el,{autoAlpha:0,y:22},{autoAlpha:1,y:0,duration:.7,ease:'power2.out',delay:i*.12,scrollTrigger:{trigger:sec,start:'top 82%',toggleActions:'play none none none'}});});
+  });
+
+  /* Catch non-animated elements */
+  var animSet=new Set();
+  document.querySelectorAll('.rv,.stagger-child').forEach(function(e){animSet.add(e);});
+  document.querySelectorAll('.eyebrow,.heading,.heading-sm,.sub,.orn,.cd-para,.footer-hr,.gal-quote,.gal-hint').forEach(function(el){
+    if(animSet.has(el))return;
+    if(el.closest('.rv')||el.closest('.stagger-child'))return;
+    gsap.fromTo(el,{autoAlpha:0,y:18},{autoAlpha:1,y:0,duration:.7,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}});
   });
 
   /* Copy */
