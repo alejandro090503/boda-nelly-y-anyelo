@@ -196,7 +196,8 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 .dc-figs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:32px auto 28px;max-width:340px;position:relative}
 .dc-figs::before{content:'';position:absolute;left:50%;top:14%;bottom:14%;width:1px;background:linear-gradient(to bottom,transparent,rgba(158,125,80,.4),transparent)}
 .dc-fig{display:flex;flex-direction:column;align-items:center;gap:14px;padding:8px 6px;background:transparent}
-.dc-fig svg,.dc-fig img{display:block;filter:drop-shadow(0 4px 14px rgba(158,125,80,.18))}
+.dc-fig svg,.dc-fig img{display:block;filter:drop-shadow(0 6px 16px rgba(20,16,10,.16))}
+.dc-fig img{height:215px;width:auto;max-width:100%;object-fit:contain}
 .dc-fig-ttl{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);line-height:1}
 .dc-fig-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--text);opacity:.7;margin-top:-8px}
 .dc-avoid-wrap{margin-top:8px;padding-top:24px;border-top:1px solid rgba(158,125,80,.18);max-width:340px;margin-left:auto;margin-right:auto}
@@ -561,37 +562,12 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 
     <div class="dc-figs rv">
       <div class="dc-fig">
-        <svg viewBox="0 0 110 150" width="96" height="131" fill="none" aria-label="Caballero de etiqueta">
-          <ellipse cx="55" cy="25" rx="14" ry="16.5" fill="#2a2520"/>
-          <path d="M41 18 Q55 7 69 18 Q66 12 55 11 Q44 12 41 18Z" fill="#3a342c"/>
-          <path d="M49 40 L49 53 L61 53 L61 40Z" fill="#e9e2d3"/>
-          <path d="M19 150 L23 80 Q29 61 49 53 L55 66 L61 53 Q81 61 87 80 L91 150Z" fill="#1b1916"/>
-          <path d="M49 53 L55 66 L61 53 L59 116 L51 116Z" fill="#f2eee3"/>
-          <path d="M49 53 L41 100 L52 72Z" fill="#9e7d50" opacity=".9"/>
-          <path d="M61 53 L69 100 L58 72Z" fill="#9e7d50" opacity=".9"/>
-          <path d="M48 60 L55 66 L48 72 Q45 66 48 60Z" fill="#1b1916"/>
-          <path d="M62 60 L55 66 L62 72 Q65 66 62 60Z" fill="#1b1916"/>
-          <rect x="53" y="63.5" width="4" height="5" rx="1" fill="#2a2520"/>
-          <circle cx="55" cy="94" r="1.7" fill="#9e7d50"/>
-          <circle cx="55" cy="106" r="1.7" fill="#9e7d50"/>
-        </svg>
+        <img src="caballero.png" alt="Caballero de etiqueta — traje formal negro" loading="lazy">
         <span class="dc-fig-ttl">Caballeros</span>
         <span class="dc-fig-sub">Esmoquin o traje</span>
       </div>
       <div class="dc-fig">
-        <svg viewBox="0 0 110 150" width="96" height="131" fill="none" aria-label="Dama de gala">
-          <defs><linearGradient id="galaG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e7d4b0"/><stop offset=".5" stop-color="#cdb085"/><stop offset="1" stop-color="#a8895c"/></linearGradient></defs>
-          <ellipse cx="55" cy="24" rx="12.5" ry="15.5" fill="#2a2520"/>
-          <path d="M43 16 Q37 42 47 60 Q42 40 46 22Z" fill="#352f28"/>
-          <path d="M67 16 Q73 42 63 60 Q68 40 64 22Z" fill="#352f28"/>
-          <path d="M50 37 L50 50 L60 50 L60 37Z" fill="#e7d2b6"/>
-          <path d="M40 60 Q46 55 55 57 Q64 55 70 60 L66 66 Q55 74 44 66Z" fill="url(#galaG)"/>
-          <path d="M44 64 Q55 73 66 64 L70 60 Q80 96 78 150 L32 150 Q30 96 40 60Z" fill="url(#galaG)"/>
-          <path d="M55 74 L55 150" stroke="#8a6f48" stroke-width=".6" opacity=".4"/>
-          <path d="M48 92 Q47 122 44 150" stroke="#8a6f48" stroke-width=".5" opacity=".3"/>
-          <path d="M62 92 Q63 122 66 150" stroke="#8a6f48" stroke-width=".5" opacity=".3"/>
-          <path d="M40 60 L33 150" stroke="#fff" stroke-width=".5" opacity=".22"/>
-        </svg>
+        <img src="dama.png" alt="Dama de gala — vestido largo" loading="lazy">
         <span class="dc-fig-ttl">Damas</span>
         <span class="dc-fig-sub">Vestido largo de gala</span>
       </div>
