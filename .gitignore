@@ -1,6 +1,4 @@
 .vercel
-cancion.mp3
-*.mp3
 
 # respaldos de procesamiento (no deploy)
 sobre-color.png
